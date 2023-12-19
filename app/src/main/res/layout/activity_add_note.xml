@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="AddNoteActivity">
+
+    <EditText
+        android:id="@+id/editTextNoteTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_note_title_hint"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/editTextNoteContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp"
+        android:inputType="textMultiLine"
+        android:isScrollContainer="true"
+        android:gravity="start"/>
+
+    <LinearLayout
+        android:id="@+id/buttons_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonAddNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/add_note"
+            app:icon="@android:drawable/ic_menu_save"
+            app:iconSize="22dp" />
+    </LinearLayout>
+</LinearLayout>
