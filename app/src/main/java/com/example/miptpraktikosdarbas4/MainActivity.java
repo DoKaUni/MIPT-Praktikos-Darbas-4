@@ -2,13 +2,19 @@ package com.example.miptpraktikosdarbas4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Button;
+
 import java.util.ArrayList;
 
 import android.os.Bundle;
+
+import com.example.miptpraktikosdarbas4.Utils.ListViewUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,5 +37,22 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(view.getContext(), AddNoteActivity.class);
             view.getContext().startActivity(intent);
         });
+
+        BroadcastReceiver refreshListReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                ListViewUtils.populateList(context, listItems, adapter);
+            }
+        };
+        registerReceiver(refreshListReceiver, new IntentFilter("refreshList"));
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        ListViewUtils.populateList(this, listItems, adapter);
+    }
+
+
 }
