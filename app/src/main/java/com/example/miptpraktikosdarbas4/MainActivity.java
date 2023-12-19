@@ -22,12 +22,14 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ListView listViewNotes;
     Button buttonAddNote;
+    Button buttonViewNote;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         this.buttonAddNote = findViewById(R.id.buttonAddNote);
+        this.buttonViewNote = findViewById(R.id.buttonViewNote);
 
         this.listViewNotes = findViewById(R.id.listViewNotes);
         this.adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, this.listItems);
@@ -35,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
         buttonAddNote.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), AddNoteActivity.class);
+            view.getContext().startActivity(intent);
+        });
+
+        buttonViewNote.setOnClickListener(view -> {
+            Intent intent = new Intent(view.getContext(), ViewNoteActivity.class);
             view.getContext().startActivity(intent);
         });
 
@@ -53,6 +60,4 @@ public class MainActivity extends AppCompatActivity {
 
         ListViewUtils.populateList(this, listItems, adapter);
     }
-
-
 }

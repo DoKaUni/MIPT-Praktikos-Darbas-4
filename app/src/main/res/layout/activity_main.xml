@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4e4e4e"
     tools:context=".MainActivity">
 
     <TextView
@@ -31,8 +32,23 @@
 
     <Button
         android:id="@+id/buttonAddNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:insetBottom="0dp"
+        app:icon="@android:drawable/ic_menu_edit"
+        app:iconGravity="textEnd"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonViewNote"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="52dp"
+        app:icon="@android:drawable/ic_menu_search"
+        app:iconGravity="textEnd"
+        app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
